@@ -25,23 +25,23 @@
     <a-scene
       reflection="directionalLight: a-light[type=directional]"
       ar-hit-test="target: #objects;"
-      renderer="colorManagement: true; exposure: 1; toneMapping: ACESFilmic"
+      renderer="colorManagement: true; exposure: 1"
       xr-mode-ui="XRMode: xr"
     >
+      <a-entity light="type: ambient; intensity: 0.8"></a-entity>
+      <a-entity light="type: directional; intensity: 1.2" position="2 4 2"></a-entity>
+      
       <a-assets timeout="20000">
         <!-- <img id="treemap" src="treemap.png" crossorigin="anonymous" /> -->
         <a-asset-item id="root" src="https://theresageb.github.io/NaturUndSzenografie/Roots2.glb" crossorigin="anonymous"></a-asset-item>
       </a-assets>
 
-    <a-entity environment="preset: default" hide-on-enter-ar></a-entity>
+   <!-- <a-entity environment="preset: default" hide-on-enter-ar></a-entity> -->
    <!-- <a-plane position="0 0.01 0" rotation="-90 0 0" width="100" height="100" color="#7BC8A4"></a-plane> -->
 
       <a-camera position="0 1.6 0" wasd-controls="acceleration:10;" rotation="0 0 0"></a-camera>
-      <a-entity id="objects" scale="1 1 1" position="0 0 0">
-        <a-entity gltf-model="#root" rotation="-180 0 0" position="0 0.02 0" scale="8.3 8.3 8.3"></a-entity>
-        <a-entity light="type: ambient; intensity: 0.8"></a-entity>
-        <a-entity light="type: directional; intensity: 1" position="1 3 2"></a-entity>
-        
+      <a-entity id="objects" position="0 0 0">
+        <a-entity gltf-model="#root" rotation="-180 0 0" position="0 0.02 0" scale="8.3 8.3 8.3"></a-entity>        
       </a-entity>
     </a-scene>
   </body>
